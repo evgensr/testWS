@@ -5,7 +5,7 @@ THIS_FILE := $(lastword $(MAKEFILE_LIST))
 build:
 	docker-compose -f docker-compose.yml build $(c)
 
-up:
+ma:
 	docker-compose -f docker-compose.yml up -d $(c)
 
 start:

@@ -1,16 +1,18 @@
-version: "3"
+version: '3'
 
 services:
-    web:
+    webserver:
         image: nginx:latest
         ports:
-            - "80:80"
+            - 80:80
+            - 443:443
+        restart: always
         volumes:
-            - ./delft:/delft
-            - ./nginx:/etc/nginx/conf.d
-        links:
-            - php
-    php:
-        image: php:7-fpm
+            - ./nginx/conf/:/etc/nginx/conf.d/:ro
+            - ./certbot/www:/var/www/certbot/:ro
+            - ./certbot/conf/:/etc/nginx/ssl/:ro
+    certbot:
+        image: certbot/certbot:latest
         volumes:
-            - ./delft:/delft
+            - ./certbot/www/:/var/www/certbot/:rw
+            - ./certbot/conf/:/etc/letsencrypt/:rw
