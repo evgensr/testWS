@@ -14,10 +14,16 @@ services:
             - ./certbot/conf/:/etc/nginx/ssl/:ro
         links:
             - php
+        networks:
+            - front
+            - backend
     php:
         image: php:7-fpm
         volumes:
             - ./delft:/delft/:rw
+        networks:
+            - front
+            - backend
 #    certbot:
 #        image: certbot/certbot:latest
 #        volumes:
@@ -25,5 +31,7 @@ services:
 #            - ./certbot/conf/:/etc/letsencrypt/:rw
 
 networks:
-    default:
+    front:
+        name: front
         external: true
+    backend:
