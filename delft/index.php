@@ -6,8 +6,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	</head>
 	<body class="is-preload">
+    <h1>Test</h1>
     <?
-    phpinfo();
+        echo $_SERVER['REMOTE_ADDR'];
     ?>
 	</body>
 </html>
