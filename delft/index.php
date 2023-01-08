@@ -8,7 +8,8 @@
 	<body class="is-preload">
     <h1>Test</h1>
     <?
-        echo $_SERVER['REMOTE_ADDR'];
+
+        print_r($_SERVER);
     ?>
 	</body>
 </html>
