@@ -7,9 +7,12 @@
 	</head>
 	<body class="is-preload">
     <h1>Test</h1>
+
+    <pre>
     <?
 
-        print_r($_SERVER);
+        print_r($_GET);
     ?>
+    </pre>
 	</body>
 </html>
